@@ -11,13 +11,18 @@
     "cypress:cache:list": "cypress cache list",
     "list-videos": "ls -l cypress/videos",
     "check-videos": "ok-file 'cypress/videos/*.mp4'",
-    "set-status": "set-status"
+    "set-status": "set-status",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "Gleb Bahmutov <gleb@cypress.io>",
   "license": "ISC",
   "devDependencies": {
     "ok-file": "1.5.2"
+  },
+  "dependencies": {
+    "cypress": "^8.3.0",
+    "express": "^4.17.1"
   },
   "repository": {
     "type": "git",

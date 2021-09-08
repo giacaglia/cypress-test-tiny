@@ -14,7 +14,27 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import "./commands";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+/**
+ * Intercept network requests and attach cognito auth and branch query param
+ */
+function intercept() {
+	cy.intercept({ hostname: /.*/ }, (req) => {
+		req.headers = {
+			...(req ? req.headers : {}),
+			"x-cypress-auth": "rheurheurheurheuhreuh",
+		};
+	});
+}
+
+before(() => {
+	intercept();
+});
+
+beforeEach(() => {
+	intercept();
+});
