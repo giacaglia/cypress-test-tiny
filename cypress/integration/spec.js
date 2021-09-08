@@ -7,6 +7,7 @@ describe("page", () => {
 
 	beforeEach(() => {
 		console.log("Before each");
+		cy.visit("localhost:3000/test3");
 	});
 
 	arrayValues.forEach((value) => {
