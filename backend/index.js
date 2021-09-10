@@ -21,16 +21,13 @@ app.use(function (req, res, next) {
 });
 // Adding delay to simulate a slow response
 app.use(function (req, res, next) {
-	setTimeout(next, 1000);
+	setTimeout(next, 500);
 });
 
 app.get("/firstTest", function (req, res) {
 	const { headers } = req;
 	// console.log("headers");
 	// console.log(headers["x-cypress-auth"]);
-	// throw new Error("Uh oh!");
-	// res.send("Hello World!");
-	// res.sendStatus(500);
 	if (headers["x-cypress-auth"]) {
 		res.send("Hello World!");
 	} else {

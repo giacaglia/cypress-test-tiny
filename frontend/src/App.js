@@ -5,7 +5,7 @@ const ONE_SECOND = 1000;
 
 function App() {
 	function getData() {
-		// console.log("DATA!!!");
+		console.log("DATA!!!");
 		return fetch(`${baseUrl}/firstTest`, {
 			method: "GET",
 			headers: {
@@ -19,7 +19,9 @@ function App() {
 			console.log(response);
 			if (response.ok) {
 				console.log("HReuhreuhre");
+				return response;
 			} else {
+				console.log("FROTNEDNCANT FIND HEADER");
 				throw new Error("Something went wrong.");
 			}
 		});

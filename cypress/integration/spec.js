@@ -9,16 +9,17 @@ describe("page", () => {
 		console.log("before");
 	});
 
-	// beforeEach(() => {
-	// 	cy.wait(200);
-	// 	console.log("beforeEach");
-	// });
+	beforeEach(() => {
+		console.log("beforeEach");
+		cy.wait(500);
+	});
+
 	arrayValues.forEach((value) => {
 		it(`Visit react app - ${value}`, () => {
 			const random = getRandomInt(150);
 			cy.visit("localhost:3000");
 			cy.get("button").click();
-			cy.wait(1900 + random);
+			cy.wait(800 + random);
 		});
 	});
 	// beforeEach(() => {
