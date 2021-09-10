@@ -5,9 +5,11 @@ describe("page", () => {
 		console.log("before");
 	});
 
-	it("Visit react app", () => {
-		cy.visit("localhost:3000");
-		cy.get("button").click();
+	arrayValues.forEach((value) => {
+		it("Visit react app", () => {
+			cy.visit("localhost:3000");
+			cy.get("button").click();
+		});
 	});
 	// beforeEach(() => {
 	// 	console.log("Before each");
