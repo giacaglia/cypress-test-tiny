@@ -1,9 +1,32 @@
 var express = require("express");
 var app = express();
+var cors = require("cors");
 
+app.use(cors());
+
+var allowedOrigins = ["http://localhost:3000"];
+app.use(function (req, res, next) {
+	var origin = req.headers.origin || "";
+	if (allowedOrigins.includes(origin)) {
+		res.setHeader("Access-Control-Allow-Origin", origin); // restrict it to the required domain
+	}
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+	res.setHeader(
+		"Access-Control-Allow-Headers",
+		"Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Origin, Access-Control-Allow-Methods"
+	);
+	next();
+});
 // Adding delay to simulate a slow response
 app.use(function (req, res, next) {
 	setTimeout(next, 1000);
+});
+
+app.get("/firstTest", function (req, res) {
+	const { headers } = req;
+	res.send("Hello World!");
 });
 
 app.get("/", function (req, res) {
@@ -64,6 +87,6 @@ app.get("/test4", function (req, res) {
 	}
 });
 
-app.listen(3000, function () {
-	console.log("Listening on port 3000...");
+app.listen(4000, function () {
+	console.log("Listening on port 4000...");
 });

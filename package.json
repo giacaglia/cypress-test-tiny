@@ -21,6 +21,7 @@
     "ok-file": "1.5.2"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "cypress": "^8.3.0",
     "express": "^4.17.1",
     "react": "^17.0.2",
