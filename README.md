@@ -5,7 +5,7 @@ Reproducing the problem that we've encountered with Cypress 8 where we are getti
 In order to run this test, you need to run the following:
 
 ```
-yarn start
+yarn start:all
 ```
 
 This starts the Express server.

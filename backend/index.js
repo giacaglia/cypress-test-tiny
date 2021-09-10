@@ -26,15 +26,17 @@ app.use(function (req, res, next) {
 
 app.get("/firstTest", function (req, res) {
 	const { headers } = req;
+	// console.log("headers");
+	// console.log(headers["x-cypress-auth"]);
 	// throw new Error("Uh oh!");
 	// res.send("Hello World!");
-	res.sendStatus(500);
-	// if (headers["x-cypress-auth"]) {
-	// 	res.send("Hello World!");
-	// } else {
-	// 	console.log("Didn't find header!!!");
-	// 	res.sendStatus(500);
-	// }
+	// res.sendStatus(500);
+	if (headers["x-cypress-auth"]) {
+		res.send("Hello World!");
+	} else {
+		console.log("Didn't find header!!!");
+		res.sendStatus(500);
+	}
 });
 
 app.get("/", function (req, res) {

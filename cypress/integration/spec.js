@@ -1,14 +1,24 @@
 /// <reference types="cypress" />
+
+function getRandomInt(max) {
+	return Math.floor(Math.random() * max);
+}
 describe("page", () => {
-	const arrayValues = [...Array(33).keys()];
+	const arrayValues = [...Array(100).keys()];
 	before(() => {
 		console.log("before");
 	});
 
+	// beforeEach(() => {
+	// 	cy.wait(200);
+	// 	console.log("beforeEach");
+	// });
 	arrayValues.forEach((value) => {
-		it("Visit react app", () => {
+		it(`Visit react app - ${value}`, () => {
+			const random = getRandomInt(150);
 			cy.visit("localhost:3000");
 			cy.get("button").click();
+			cy.wait(1900 + random);
 		});
 	});
 	// beforeEach(() => {
